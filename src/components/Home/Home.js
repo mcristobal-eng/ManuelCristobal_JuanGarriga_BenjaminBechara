@@ -5,7 +5,7 @@ function Home(){
     return (
          <div>
          <h2 class="alert alert-primary">Popular movies this week</h2>
-                 <section class="row cards" id="now-playing">
+                 <section claititss="row cards" id="now-playing">
                     <Card />
                     <Card />
                     <Card />

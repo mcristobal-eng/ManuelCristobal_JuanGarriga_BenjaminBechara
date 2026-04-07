@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 function Header() {
 
     return (
+
+        <div class="container">
+        <h1>UdeSA Movies </h1>
         <nav>
+            
             <ul className="nav nav-tabs my-4">
                 <li className="nav-item">
                     <Link className="nav-link" to="/">
@@ -42,7 +46,8 @@ function Header() {
                     </Link>
                 </li>
             </ul>
-        </nav>);
+        </nav>
+        </div>);
 }
 
 

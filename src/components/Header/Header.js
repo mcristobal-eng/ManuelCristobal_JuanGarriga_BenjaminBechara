@@ -1,31 +1,50 @@
-function Header (){
+import { Link } from "react-router-dom";
+
+
+function Header() {
 
     return (
-    <nav>
-            <ul class="nav nav-tabs my-4">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+        <nav>
+            <ul className="nav nav-tabs my-4">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/">
+                        Home
+                    </Link>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="movies.html">Películas</a>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/movies">
+                        Películas
+                    </Link>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="series.html">Series</a>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/series">
+                        Series
+                    </Link>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="favorites.html">Favoritas</a>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/favorites">
+                        Favoritas
+                    </Link>
                 </li>
-                <li class="nav-item ml-auto">
-                    <a class="nav-link" href="register.html">Registro</a>
+
+                <li className="nav-item ms-auto">
+                    <Link className="nav-link" to="/register">
+                        Registro
+                    </Link>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
+
+                <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                        Login
+                    </Link>
                 </li>
             </ul>
-        </nav> );
-        }
-    
+        </nav>);
+}
 
-        export default Header
 
-        
+export default Header
+

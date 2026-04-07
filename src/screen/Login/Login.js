@@ -1,31 +1,40 @@
-function Login (){
+import { Link } from "react-router-dom";
+
+function Login() {
 
     return (
-    <nav>
-           <h2 class="alert alert-primary">Iniciar sesión</h2>
+        <nav>
+            <h2 className="alert alert-primary">Iniciar sesión</h2>
 
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ingresá tu email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" placeholder="Ingresá tu contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-                </form>
-                <p class="mt-3 text-center">¿No tenés cuenta? <a href="register.html">Registrarse</a></p>
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <form>
+                        <div className="form-group">
+                            <label htmlFor="email">Email</label>
+                            <input type="email"className="form-control"id="email" placeholder="Ingresá tu email"/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="password">Contraseña</label>
+                            <input type="password" className="form-control"id="password" placeholder="Ingresá tu contraseña"/>
+                        </div>
+
+                        <button type="submit" className="btn btn-primary btn-block">
+                            Iniciar sesión
+                        </button>
+                    </form>
+
+                    <p className="mt-3 text-center">
+                        ¿No tenés cuenta? <Link to="/register">Registrarse</Link>
+                    </p>
+                </div>
             </div>
-        </div>
-        </nav> );
-        }
+        </nav>);
+}
 
-        export default Login
+export default Login
 
-        
+
 
 
 

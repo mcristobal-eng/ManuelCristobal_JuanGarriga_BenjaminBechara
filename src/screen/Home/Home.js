@@ -9,7 +9,7 @@ function Home() {
         <Card />
         <Card />
       </section>
-      <h2 class="alert alert-primary">Movies now playing</h2>
+      <h2 className="alert alert-primary">Movies now playing</h2>
       <section className="row cards" id="now-playing">
         <Card />
         <Card />

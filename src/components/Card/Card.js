@@ -1,16 +1,15 @@
-function Card() {
+function Card(props) {
 
 
     return (
-        <article class="single-card-movie">
-            <img src="https://image.tmdb.org/t/p/w500/9PXZIUsSDh4alB80jheWX4fhZmy.jpg" class="card-img-top"
+        <article className="single-card-movie">
+            <img src={props.imagen} className="card-img-top"
                 alt="..."/>
-                <div class="cardBody">
-                    <h5 class="card-title">F1</h5>
-                    <p class="card-text">Racing legend Sonny Hayes is coaxed out of retirement to lead a struggling
-                        Formula 1 team—and mentor a young hotshot driver—while chasing one more chance at glory.</p>
-                    <a href="movie.html" class="btn btn-primary">Ver más</a>
-                    <a href="" class="btn alert-primary">♥️</a>
+                <div className="cardBody">
+                    <h5 className="card-title">{props.titulo}</h5>
+                    <p className="card-text">{props.descripcion}</p>
+                    <a href="movie.html" className="btn btn-primary">Ver más</a>
+                    <a href="" className="btn alert-primary">♥️</a>
                 </div>
         </article>
 

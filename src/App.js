@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Buscador from "./components/Buscador/Buscador";
-import Peliculas from "./screen/Peliculas/Peliculas";
 import Favoritos from "./screen/Favoritos/Favoritos";
 import Home from "./screen/Home/Home";
 import Login from "./screen/Login/Login";
@@ -22,7 +21,6 @@ function App() {
         <Route path="/" exact={true} component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/movies" component={Peliculas} />
         <Route path="/series" component={Serie} />
         <Route path="/favorites" component={Favoritos} />
         <Route component={NotFound} />

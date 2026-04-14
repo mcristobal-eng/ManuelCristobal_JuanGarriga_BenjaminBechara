@@ -9,6 +9,7 @@ import Login from "./screen/Login/Login";
 import Register from "./screen/Register/Register";
 import NotFound from "./screen/NotFound/NotFound";
 import Serie from "./screen/Serie/Serie"
+import Movies from "./screen/Movies/Movies";
 
 
 function App() {
@@ -23,7 +24,11 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/series" component={Serie} />
         <Route path="/favorites" component={Favoritos} />
+        <Route path="/movies" component={Movies} />
         <Route component={NotFound} />
+        
+
+
       </Switch>
 
       <Footer />

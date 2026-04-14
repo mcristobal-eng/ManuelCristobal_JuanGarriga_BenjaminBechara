@@ -5,31 +5,32 @@ import Card from "../Card/Card";
 
 const API = "cae07da6b0c1e31fafaea6dc83a1d696"
 
-class Peliculas extends Component {
+class TvShows extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            nowPlaying: [],
-            popular: []
+            todayTv: [],
+            weekTv: []
         };
     }
     componentDidMount() {
 
-        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=cae07da6b0c1e31fafaea6dc83a1d696')
+        fetch('https://api.themoviedb.org/3/trending/tv/week?api_key=cae07da6b0c1e31fafaea6dc83a1d696')
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    nowPlaying: data.results.filter((peli, i) => i < 6)
+                    todayTv: data.results.filter((tv, i) => i < 6)
                 });
             })
+            
             .catch(error => console.log(error));
 
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=cae07da6b0c1e31fafaea6dc83a1d696')
+        fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=cae07da6b0c1e31fafaea6dc83a1d696')
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    popular: data.results.filter((peli, i) => i < 4)
+                    weekTv: data.results.filter((tv, i) => i < 5)
                 });
             })
             .catch(error => console.log(error));
@@ -40,11 +41,11 @@ class Peliculas extends Component {
         return (
             <>
 
-                <h2 className="alert alert-primary">Popular movies this week</h2>
-                <section className="row cards" id="movies">
+                <h2 className="alert alert-primary">Popular TV Shows this week</h2>
+                <section className="row cards" id="tv-show">
                     {
-                        this.state.popular.length > 0 ? (
-                            this.state.popular.map((pelicula) => (
+                        this.state.weekTv.length > 0 ? (
+                            this.state.weekTv.map((pelicula) => (
                                 <Card
                                     key={pelicula.id}
                                     id={pelicula.id}
@@ -58,11 +59,11 @@ class Peliculas extends Component {
                         )
                     }
                 </section>
-                <h2 className="alert alert-primary">Movies now playing</h2>
-                <section className="row cards" id="now-playing">
+                <h2 className="alert alert-primary">Tv shows airing Today </h2>
+                <section className="row cards" id="on-air-today">
                     {
-                        this.state.nowPlaying.length > 0 ? (
-                            this.state.nowPlaying.map((pelicula) => (
+                        this.state.todayTv.length > 0 ? (
+                            this.state.todayTv.map((pelicula) => (
                                 <Card
                                     key={pelicula.id}
                                     id={pelicula.id}
@@ -86,4 +87,4 @@ class Peliculas extends Component {
 
 }
 
-export default Peliculas;
+export default TvShows;

@@ -12,8 +12,7 @@ function Serie() {
         <div>
 
 
-            <Card />
-            pruebaaa
+        
         </div>
 
     );

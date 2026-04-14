@@ -1,5 +1,25 @@
 import { Link } from "react-router-dom";
 function Card(props) {
+    function agregarAFavoritos(){
+        let favoritos = []
+        let recuperoStorage = localStorage.getItem('favoritosPelis');
+        if (recuperoStorage != null) {
+            favoritos =JSON.parse(recuperoStorage);
+        }
+        let existe = false;
+        for(let i = 0; i< favoritos.lenght; i++){
+            if(favoritos[i] === props.id){
+                existe = true;
+            }
+        }
+        if (existe === false){
+            favoritos.push(props.id)
+        }
+        let favoritosTexto = JSON.stringify(favoritos);
+        localStorage.setItem( 'favoritosPelis',favoritosTexto);
+        console.log("guardado", favoritosTexto)
+
+    }
 
 
     return (
@@ -10,7 +30,7 @@ function Card(props) {
                 <h5 className="card-title">{props.nombre}</h5>
                 <p className="card-text">{props.descripcion}</p>
                 <Link to="/movie.html" className="btn btn-primary">Ver más</Link>
-                <Link to="" className="btn alert-primary">♥️</Link>
+                <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
             </div>
         </article>
 

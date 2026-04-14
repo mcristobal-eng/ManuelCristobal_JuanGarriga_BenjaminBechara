@@ -7,7 +7,7 @@ function Card(props) {
             favoritos =JSON.parse(recuperoStorage);
         }
         let existe = false;
-        for(let i = 0; i< favoritos.lenght; i++){
+        for(let i = 0; i< favoritos.length; i++){
             if(favoritos[i] === props.id){
                 existe = true;
             }

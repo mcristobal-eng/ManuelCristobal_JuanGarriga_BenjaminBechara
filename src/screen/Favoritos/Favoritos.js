@@ -30,29 +30,56 @@ class Favoritos extends Component {
 
 
     }
-render(){
+    eliminarFavoritos(id) {
+        let favoritos = JSON.parse(localStorage.getItem('favoritosPelis'))
+        let nuevoArray = []
+        for (let i = 0; i < favoritos.length; i++) {
+            if (favoritos[i] !== id) {
+                nuevoArray.push(favoritos[i]);
 
-    return(
-        <div>
-            <h2 className='alert alert-primary'> Peliculas favoritas </h2>
-            <section className = 'row cards'>
-                {this.state.peliculasFavoritas.map((pelicula,i) =>(
+            }
+        }
+        localStorage.setItem('favoritosPelis', JSON.stringify(nuevoArray));
+        let pelisActualizadas = [];
+        for (let i = 0; i < this.state.peliculasFavoritas.length; i++) {
+            if (this.state.peliculasFavoritas[i].id !== id) {
+                pelisActualizadas.push(this.state.peliculasFavoritas[i]);
+            }
+        }
+        this.setState({
+            peliculasFavoritas: pelisActualizadas
+        });
 
-                    <Card key = {i}
-                    id = {pelicula.id}
-                    nombre = {pelicula.title}
-                    foto = {"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
-                    descripcion = {pelicula.overview}
+
+    }
+
+    render() {
+
+        return(
+    <div>
+        <h2 className='alert alert-primary'>Peliculas favoritas</h2>
+
+        <section className='row cards'>
+            {this.state.peliculasFavoritas.map((pelicula, i) => (
+                <div key={i}>
+
+                    <Card 
+                        id={pelicula.id}
+                        nombre={pelicula.title}
+                        foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
+                        descripcion={pelicula.overview}
                     />
 
-                )
-                )}
+                    <button onClick={() => this.eliminarFavoritos(pelicula.id)}>
+                        Eliminar
+                    </button>
 
-                 </section>
-        </div>
-    )
+                </div>
+            ))}
+        </section>
+    </div>
+)
+    }
 }
 
-}
-
-export default Favoritos;
+export default Favoritos;                  

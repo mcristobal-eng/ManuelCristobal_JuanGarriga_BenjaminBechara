@@ -68,7 +68,7 @@ class Peliculas extends Component {
                                     id={pelicula.id}
                                     nombre={pelicula.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
-                                    desc={pelicula.overview}
+                                    descripcion={pelicula.overview}
                                 />
                             ))
                         ) : (

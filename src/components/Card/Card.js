@@ -1,12 +1,23 @@
 import { Link } from "react-router-dom";
 function Card(props) {
     function agregarAFavoritos(){
+        let clave = "";
+        if(props.tipo ==='pelicula'){
+            clave = 'favoritosPelis';
+        } else {
+            clave = 'favoritosSeries';
+        }
+
+        
+
         let favoritos = []
-        let recuperoStorage = localStorage.getItem('favoritosPelis');
+        let recuperoStorage = localStorage.getItem(clave);
+
         if (recuperoStorage != null) {
             favoritos =JSON.parse(recuperoStorage);
         }
         let existe = false;
+
         for(let i = 0; i< favoritos.length; i++){
             if(favoritos[i] === props.id){
                 existe = true;
@@ -16,8 +27,7 @@ function Card(props) {
             favoritos.push(props.id)
         }
         let favoritosTexto = JSON.stringify(favoritos);
-        localStorage.setItem( 'favoritosPelis',favoritosTexto);
-        console.log("guardado", favoritosTexto)
+        localStorage.setItem( clave,favoritosTexto);
 
     }
 
@@ -39,6 +49,7 @@ function Card(props) {
 
     );
 }
+
 export default Card;
 
 

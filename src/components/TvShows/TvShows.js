@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import Card from "../Card/Card";
 
-
-
-const API = "cae07da6b0c1e31fafaea6dc83a1d696"
-
 class TvShows extends Component {
 
     constructor(props) {
@@ -23,7 +19,7 @@ class TvShows extends Component {
                     todayTv: data.results.filter((tv, i) => i < 6)
                 });
             })
-            
+
             .catch(error => console.log(error));
 
         fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=cae07da6b0c1e31fafaea6dc83a1d696')

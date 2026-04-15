@@ -9,6 +9,7 @@ class Favoritos extends Component {
             peliculasFavoritas: [],
             seriesFavoritas: [],
         };
+        
     }
     componentDidMount() {
         let favoritosPelis = localStorage.getItem('favoritosPelis')

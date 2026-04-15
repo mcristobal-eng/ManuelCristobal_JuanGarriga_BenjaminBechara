@@ -13,7 +13,7 @@ import Movies from "./screen/Movies/Movies";
 
 function App() {
   return (
-    <div >
+    <div className="container">
       <Header />
     
       <Switch>

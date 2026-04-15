@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 
 
-
-const API = "cae07da6b0c1e31fafaea6dc83a1d696"
-
 class Movies extends Component {
 
     constructor(props) {
@@ -21,7 +18,7 @@ class Movies extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    peliculas: data.results.filter((peli, i) => i < 5)
+                    peliculas: data.results.filter((peli, i) => i < 8)
                 });
             })
 

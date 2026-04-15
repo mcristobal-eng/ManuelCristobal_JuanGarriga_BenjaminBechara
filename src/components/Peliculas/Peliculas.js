@@ -3,7 +3,6 @@ import Card from "../Card/Card";
 
 
 
-const API = "cae07da6b0c1e31fafaea6dc83a1d696"
 
 class Peliculas extends Component {
 
@@ -41,7 +40,7 @@ class Peliculas extends Component {
             <>
 
                 <h2 className="alert alert-primary">Popular movies this week</h2>
-                <section className="row cards" id="movies">
+                <section className="cards" id="movies">
                     {
                         this.state.popular.length > 0 ? (
                             this.state.popular.map((pelicula) => (
@@ -68,7 +67,7 @@ class Peliculas extends Component {
                                     id={pelicula.id}
                                     nombre={pelicula.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
-                                    desc={pelicula.overview}
+                                    descripcion={pelicula.overview}
                                 />
                             ))
                         ) : (

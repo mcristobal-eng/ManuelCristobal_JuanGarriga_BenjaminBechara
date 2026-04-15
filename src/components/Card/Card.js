@@ -10,7 +10,7 @@ function Card(props) {
                 <h5 className="card-title">{props.nombre}</h5>
                 <p className="card-text">{props.descripcion}</p>
                 <Link to="/movie.html" className="btn btn-primary">Ver más</Link>
-                <Link to="" className="btn alert-primary">♥️</Link>
+                
             </div>
         </article>
 

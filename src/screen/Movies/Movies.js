@@ -8,7 +8,8 @@ class Movies extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            peliculas: []
+            peliculas: [],
+            pagina: 1
 
         };
     }
@@ -24,6 +25,22 @@ class Movies extends Component {
 
             .catch(error => console.log(error));
     }
+    cargarMas() {
+        let paginaSiguiente = this.state.pagina + 1;
+
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=cae07da6b0c1e31fafaea6dc83a1d696&page=' + paginaSiguiente)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    peliculas: this.state.peliculas.concat(data.results),
+                    pagina: paginaSiguiente
+                });
+            })
+            .catch(error => console.log(error));
+    }
+
+
+
 
     render() {
         console.log(this.state);
@@ -32,12 +49,14 @@ class Movies extends Component {
 
                 <h2 className="alert alert-primary">Todas las Peliculas </h2>
                 <form className="filter-form px-0 mb-3" action="" method="get">
-                        <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista"/>
-                    </form>
+                    <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista" />
+                </form>
 
-                    <button className="btn btn-info">Cargar más</button>
+                <button className="btn btn-info" onClick={() => this.cargarMas()}>
+                    Cargar más
+                </button>
                 <section className="cards">
-                    
+
 
                     {
                         this.state.peliculas.length > 0 ? (

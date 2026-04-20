@@ -16,7 +16,7 @@ class TvShows extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    todayTv: data.results.filter((tv, i) => i < 6)
+                    todayTv: data.results.filter((tv, i) => i < 8)
                 });
             })
 
@@ -26,7 +26,7 @@ class TvShows extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    weekTv: data.results.filter((tv, i) => i < 5)
+                    weekTv: data.results.filter((tv, i) => i < 4)
                 });
             })
             .catch(error => console.log(error));

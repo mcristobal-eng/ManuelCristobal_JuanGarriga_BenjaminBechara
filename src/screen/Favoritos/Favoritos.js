@@ -11,6 +11,7 @@ class Favoritos extends Component {
         };
 
     }
+
     componentDidMount() {
         let favoritosPelis = localStorage.getItem('favoritosPelis')
         if (favoritosPelis != null) {
@@ -31,6 +32,7 @@ class Favoritos extends Component {
 
             });
         }
+        
 
         let favoritosSeries = localStorage.getItem('favoritosSeries')
         if (favoritosSeries != null) {

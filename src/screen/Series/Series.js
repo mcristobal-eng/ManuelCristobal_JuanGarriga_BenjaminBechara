@@ -8,7 +8,8 @@ class Series extends Component {
         super(props)
         this.state = {
             series: [],
-            pagina: 1
+            pagina: 1,
+            filtro_series: ''
 
         };
     }
@@ -40,6 +41,14 @@ class Series extends Component {
             })
             .catch(error => console.log(error));
     }
+    controlarelFiltro(event) {
+        this.setState({ filtro_series: event.target.value });
+    }
+
+
+    evitarSubmit(event) {
+        event.preventDefault();
+    }
 
     render() {
         console.log(this.state);
@@ -48,8 +57,13 @@ class Series extends Component {
                  <Header/>
 
                 <h2 className="alert alert-primary">Todas las Series </h2>
-                <form className="filter-form px-0 mb-3" action="" method="get">
-                    <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista" />
+                <form className="filter-form px-0 mb-3" onSubmit={(event) => this.evitarSubmit(event)}>
+                    <input
+                        type="text"
+                        placeholder="Buscar dentro de la lista"
+                        value={this.state.filtro_series}
+                        onChange={(event) => this.controlarelFiltro(event)}
+                    />
                 </form>
 
                 <button className="btn btn-info" onClick={() => this.cargarMas()}>
@@ -60,16 +74,18 @@ class Series extends Component {
 
                     {
                         this.state.series.length > 0 ? (
-                            this.state.series.map((pelicula) => (
-                                <Card
-                                    key={pelicula.id}
-                                    id={pelicula.id}
-                                    tipo = "serie"     
-                                    nombre={pelicula.name}
-                                    foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
-                                    descripcion={pelicula.overview}
-                                />
-                            ))
+                            this.state.series
+                                .filter(serie => serie.name.toLowerCase().includes(this.state.filtro_series.toLowerCase()))
+                                .map((serie) => (
+                                    <Card
+                                        key={serie.id}
+                                        id={serie.id}
+                                        tipo="serie"
+                                        nombre={serie.name}
+                                        foto={"https://image.tmdb.org/t/p/w342" + serie.poster_path}
+                                        descripcion={serie.overview}
+                                    />
+                                ))
                         ) : (
                             <p>Cargando...</p>
                         )

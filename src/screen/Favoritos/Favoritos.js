@@ -64,7 +64,7 @@ class Favoritos extends Component {
         }
 
         let favoritos = JSON.parse(localStorage.getItem(clave))
-        let nuevoArray = []
+        let nuevoArray = [] 
         for (let i = 0; i < favoritos.length; i++) {
             if (favoritos[i] !== id) {
                 nuevoArray.push(favoritos[i]);
@@ -111,6 +111,7 @@ class Favoritos extends Component {
                             nombre={pelicula.title}
                             foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                             descripcion={pelicula.overview}
+                            tipo = 'pelicula'
                             eliminar={() => this.eliminarFavoritos(pelicula.id, 'pelicula')}
                         />
                     ))}
@@ -129,6 +130,7 @@ class Favoritos extends Component {
                             nombre={tv.name}
                             foto={"https://image.tmdb.org/t/p/w342" + tv.poster_path}
                             descripcion={tv.overview}
+                            tipo = 'serie'
                             eliminar={() => this.eliminarFavoritos(tv.id, 'serie')}
 
 

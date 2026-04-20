@@ -58,6 +58,7 @@ class Buscador extends Component {
                             onChange={(event) => this.controlarTipo(event)}
 
                         />
+                        
                          <label htmlFor="movie">Series</label>
 
                     </div>

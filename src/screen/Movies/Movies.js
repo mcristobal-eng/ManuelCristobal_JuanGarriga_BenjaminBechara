@@ -56,13 +56,8 @@ class Movies extends Component {
         console.log(this.state);
         return (
             <>
-<<<<<<< HEAD
                     <Header/>
                 
-=======
-
-
->>>>>>> d724ee3abcb4fdade14c8fd27140fc344080040e
                 <h2 className="alert alert-primary">Todas las Peliculas </h2>
                 <form className="filter-form px-0 mb-3" onSubmit={(event) => this.evitarSubmit(event)}>
                     <input

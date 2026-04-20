@@ -15,7 +15,7 @@ class Favoritos extends Component {
         let favoritosPelis = localStorage.getItem('favoritosPelis')
         if (favoritosPelis != null) {
             let favoritosParseado = JSON.parse(favoritosPelis);
-            favoritosParseado.forEach((id) => {
+            favoritosParseado.map((id) => {
                 fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=cae07da6b0c1e31fafaea6dc83a1d696")
                     .then(response => response.json())
                     .then(data => {
@@ -26,6 +26,7 @@ class Favoritos extends Component {
                         });
                     })
                     .catch(error => console.log(error));
+                
 
 
             });
@@ -34,7 +35,7 @@ class Favoritos extends Component {
         let favoritosSeries = localStorage.getItem('favoritosSeries')
         if (favoritosSeries != null) {
             let favoritosParseado = JSON.parse(favoritosSeries);
-            favoritosParseado.forEach((id) => {
+                favoritosParseado.map((id) => {
                 fetch("https://api.themoviedb.org/3/tv/" + id + "?api_key=cae07da6b0c1e31fafaea6dc83a1d696")
                     .then(response => response.json())
                     .then(data => {
@@ -58,7 +59,7 @@ class Favoritos extends Component {
             clave = 'favoritosSeries';
         }
 
-        let favoritos = JSON.parse(localStorage.getItem('favoritosPelis'))
+        let favoritos = JSON.parse(localStorage.getItem(clave))
         let nuevoArray = []
         for (let i = 0; i < favoritos.length; i++) {
             if (favoritos[i] !== id) {
@@ -104,7 +105,6 @@ class Favoritos extends Component {
                             nombre={pelicula.title}
                             foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                             descripcion={pelicula.overview}
-                            tipo='pelicula'
                             eliminar={() => this.eliminarFavoritos(pelicula.id, 'pelicula')}
                         />
                     ))}
@@ -123,7 +123,6 @@ class Favoritos extends Component {
                             nombre={tv.name}
                             foto={"https://image.tmdb.org/t/p/w342" + tv.poster_path}
                             descripcion={tv.overview}
-                            tipo='serie'
                             eliminar={() => this.eliminarFavoritos(tv.id, 'serie')}
 
 

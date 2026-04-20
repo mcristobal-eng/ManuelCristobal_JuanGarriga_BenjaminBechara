@@ -3,7 +3,10 @@ function Card(props) {
     let botonEliminar =null;
     if (props.eliminar) {
         botonEliminar = <button onClick={props.eliminar}>Eliminar</button>;}
-    
+    let botonCorazon =null;
+        if (props.tipo){
+            botonCorazon = <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
+        }
     
     function agregarAFavoritos() {
         let clave = "";
@@ -47,8 +50,7 @@ function Card(props) {
                 <Link to={`/detalle/id/${props.id}`} className="btn btn-primary">
                     Ver más
                 </Link>
-
-                <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
+                {botonCorazon}
                 {botonEliminar}
             </div>
         </article>

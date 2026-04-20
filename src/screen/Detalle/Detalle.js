@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from "../../components/Header/Header";
 
 class Detalle extends Component {
 
@@ -24,6 +25,8 @@ class Detalle extends Component {
     render() {
         return (
             <div>
+                    <Header/>
+                
                 {this.state.pelicula === '' ?
                     <h3>Cargando...</h3>
                     :

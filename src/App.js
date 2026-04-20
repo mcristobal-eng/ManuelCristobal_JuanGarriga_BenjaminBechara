@@ -16,9 +16,10 @@ import Resultados from "./screen/Resultados/Resultados";
 function App() {
   return (
     <div className="container">
-      <Header />
+    
 
       <Switch>
+      
         <Route path="/" exact={true} component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />

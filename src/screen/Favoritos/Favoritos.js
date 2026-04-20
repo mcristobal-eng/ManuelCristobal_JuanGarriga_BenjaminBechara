@@ -1,6 +1,8 @@
 import Card from "../../components/Card/Card";
 import React, { Component } from "react";
 import TvShows from "../../components/TvShows/TvShows";
+import Header from "../../components/Header/Header";
+
 
 class Favoritos extends Component {
     constructor(props) {
@@ -97,6 +99,8 @@ class Favoritos extends Component {
 
         return (
             <div>
+                    <Header/>
+                
                 <h2 className='alert alert-primary'>Peliculas favoritas</h2>
 
                 <section className='row cards'>

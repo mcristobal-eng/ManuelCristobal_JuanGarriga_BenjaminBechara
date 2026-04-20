@@ -11,7 +11,8 @@ constructor(props) {
         password: ""
     }
 }
-
+// Cambie a la funcion arrow por que cuando queria hacer la redireccion 
+// de screen con el  this.props.history.push() el node pensaba que el this era del estado
 evitarSubmit = (event) => {
     event.preventDefault()
 

@@ -1,4 +1,4 @@
-
+import Header from "../../components/Header/Header";
 import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 
@@ -46,7 +46,8 @@ class Movies extends Component {
         console.log(this.state);
         return (
             <>
-
+                    <Header/>
+                
                 <h2 className="alert alert-primary">Todas las Peliculas </h2>
                 <form className="filter-form px-0 mb-3" action="" method="get">
                     <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista" />

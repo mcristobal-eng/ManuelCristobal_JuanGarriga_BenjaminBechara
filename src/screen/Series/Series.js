@@ -1,4 +1,4 @@
-
+import Header from "../../components/Header/Header";
 import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 
@@ -45,6 +45,7 @@ class Series extends Component {
         console.log(this.state);
         return (
             <>
+                 <Header/>
 
                 <h2 className="alert alert-primary">Todas las Series </h2>
                 <form className="filter-form px-0 mb-3" action="" method="get">

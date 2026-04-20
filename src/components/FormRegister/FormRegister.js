@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom"
 
 class FormRegister extends Component {
 constructor(props) {
@@ -11,7 +12,7 @@ constructor(props) {
     }
 }
 
-evitarSubmit(event) {
+evitarSubmit = (event) => {
     event.preventDefault()
 
     const usuarioACrear = {
@@ -55,7 +56,7 @@ evitarSubmit(event) {
         const userEnJson = JSON.stringify(usersInicial)
         localStorage.setItem("users", userEnJson)
     }
-
+    this.props.history.push("/Login")
 }
 
 controlarEmail(event){
@@ -94,4 +95,4 @@ controlarPassword(event){
 
 }
 
-export default FormRegister
+export default withRouter(FormRegister)

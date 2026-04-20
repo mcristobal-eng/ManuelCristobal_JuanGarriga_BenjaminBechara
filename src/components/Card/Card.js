@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 function Card(props) {
+    let botonEliminar =null;
+    if (props.eliminar) {
+        botonEliminar = <button onClick={props.eliminar}>Eliminar</button>;}
+    
+    
     function agregarAFavoritos() {
         let clave = "";
         if (props.tipo === 'pelicula') {
@@ -39,11 +44,12 @@ function Card(props) {
             <div className="cardBody">
                 <h5 className="card-title">{props.nombre}</h5>
                 <p className="card-text">{props.descripcion}</p>
-                <Link to={'/detalle/id/${props.id}'} className="btn btn-primary">
+                <Link to={`/detalle/id/${props.id}`} className="btn btn-primary">
                     Ver más
                 </Link>
 
                 <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
+                {botonEliminar}
             </div>
         </article>
 

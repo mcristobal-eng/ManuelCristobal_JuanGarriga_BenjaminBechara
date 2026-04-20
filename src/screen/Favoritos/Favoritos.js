@@ -9,7 +9,7 @@ class Favoritos extends Component {
             peliculasFavoritas: [],
             seriesFavoritas: [],
         };
-        
+
     }
     componentDidMount() {
         let favoritosPelis = localStorage.getItem('favoritosPelis')
@@ -50,7 +50,14 @@ class Favoritos extends Component {
             });
         }
     }
-    eliminarFavoritos(id) {
+    eliminarFavoritos(id, tipo) {
+        let clave = "";
+        if (tipo === 'pelicula') {
+            clave = 'favoritosPelis';
+        } else {
+            clave = 'favoritosSeries';
+        }
+
         let favoritos = JSON.parse(localStorage.getItem('favoritosPelis'))
         let nuevoArray = []
         for (let i = 0; i < favoritos.length; i++) {
@@ -59,18 +66,28 @@ class Favoritos extends Component {
 
             }
         }
-        localStorage.setItem('favoritosPelis', JSON.stringify(nuevoArray));
-        let pelisActualizadas = [];
-        for (let i = 0; i < this.state.peliculasFavoritas.length; i++) {
-            if (this.state.peliculasFavoritas[i].id !== id) {
-                pelisActualizadas.push(this.state.peliculasFavoritas[i]);
+        localStorage.setItem(clave, JSON.stringify(nuevoArray));
+        let itemsActualizadas = [];
+        if (tipo === 'pelicula') {
+            for (let i = 0; i < this.state.peliculasFavoritas.length; i++) {
+                if (this.state.peliculasFavoritas[i].id !== id) {
+                    itemsActualizadas.push(this.state.peliculasFavoritas[i]);
+                }
             }
+            this.setState({
+                peliculasFavoritas: itemsActualizadas
+            });
+        } else {
+            for (let i = 0; i < this.state.seriesFavoritas.length; i++) {
+                if (this.state.seriesFavoritas[i].id !== id) {
+                    itemsActualizadas.push(this.state.seriesFavoritas[i]);
+                }
+            }
+            this.setState({
+                seriesFavoritas: itemsActualizadas
+            });
+
         }
-        this.setState({
-            peliculasFavoritas: pelisActualizadas
-        });
-
-
     }
 
     render() {
@@ -81,20 +98,15 @@ class Favoritos extends Component {
 
                 <section className='row cards'>
                     {this.state.peliculasFavoritas.map((pelicula, i) => (
-                        <div key={i}>
-
-                            <Card
-                                id={pelicula.id}
-                                nombre={pelicula.title}
-                                foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
-                                descripcion={pelicula.overview}
-                            />
-
-                            <button onClick={() => this.eliminarFavoritos(pelicula.id)}>
-                                Eliminar
-                            </button>
-
-                        </div>
+                        <Card
+                            key={i}
+                            id={pelicula.id}
+                            nombre={pelicula.title}
+                            foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
+                            descripcion={pelicula.overview}
+                            tipo='pelicula'
+                            eliminar={() => this.eliminarFavoritos(pelicula.id, 'pelicula')}
+                        />
                     ))}
                 </section>
                 <h2 className='alert alert-warning'>Series favoritas</h2>
@@ -103,16 +115,23 @@ class Favoritos extends Component {
 
                     {this.state.seriesFavoritas.map((tv, i) => (
 
-                        <div key={i}>
 
-                            <Card
-                                id={tv.id}
-                                nombre={tv.name}
-                                foto={"https://image.tmdb.org/t/p/w342" + tv.poster_path}
-                                descripcion={tv.overview}
-                            />
 
-                        </div>
+                        <Card
+                            key={i}
+                            id={tv.id}
+                            nombre={tv.name}
+                            foto={"https://image.tmdb.org/t/p/w342" + tv.poster_path}
+                            descripcion={tv.overview}
+                            tipo='serie'
+                            eliminar={() => this.eliminarFavoritos(tv.id, 'serie')}
+
+
+
+
+                        />
+
+
 
                     ))}
 

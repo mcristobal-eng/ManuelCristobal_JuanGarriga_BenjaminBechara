@@ -50,6 +50,7 @@ class Peliculas extends Component {
                                     nombre={pelicula.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                     descripcion={pelicula.overview}
+                                    tipo ='pelicula'
                                 />
                             ))
                         ) : (
@@ -68,6 +69,7 @@ class Peliculas extends Component {
                                     nombre={pelicula.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                     descripcion={pelicula.overview}
+                                    tipo = 'pelicula'
                                 />
                             ))
                         ) : (

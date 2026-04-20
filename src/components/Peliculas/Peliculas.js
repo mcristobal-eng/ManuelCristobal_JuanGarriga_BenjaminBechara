@@ -19,7 +19,7 @@ class Peliculas extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    nowPlaying: data.results.filter((peli, i) => i < 6)
+                    nowPlaying: data.results.filter((peli, i) => i < 8)
                 });
             })
             .catch(error => console.log(error));

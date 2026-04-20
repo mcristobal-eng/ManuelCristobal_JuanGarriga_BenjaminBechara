@@ -3,13 +3,16 @@ import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 
 
+
 class Movies extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             peliculas: [],
-            pagina: 1
+            pagina: 1,
+            filtro_pelis: ''
+
 
         };
     }
@@ -39,7 +42,14 @@ class Movies extends Component {
             .catch(error => console.log(error));
     }
 
+    controlarelfiltro(event) {
+        this.setState({ filtro_pelis: event.target.value });
+    }
 
+
+    evitarSubmit(event) {
+        event.preventDefault();
+    }
 
 
     render() {
@@ -47,28 +57,34 @@ class Movies extends Component {
         return (
             <>
 
+
                 <h2 className="alert alert-primary">Todas las Peliculas </h2>
-                <form className="filter-form px-0 mb-3" action="" method="get">
-                    <input type="text" name="filter" id="" placeholder="Buscar dentro de la lista" />
+                <form className="filter-form px-0 mb-3" onSubmit={(event) => this.evitarSubmit(event)}>
+                    <input
+                        type="text"
+                        placeholder="Buscar dentro de la lista"
+                        value={this.state.filtro_pelis}
+                        onChange={(event) => this.controlarelfiltro(event)}
+                    />
                 </form>
 
                 <button className="btn btn-info" onClick={() => this.cargarMas()}>
                     Cargar más
                 </button>
                 <section className="cards">
-
-
                     {
                         this.state.peliculas.length > 0 ? (
-                            this.state.peliculas.map((pelicula) => (
-                                <Card
-                                    key={pelicula.id}
-                                    id={pelicula.id}
-                                    nombre={pelicula.title}
-                                    foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
-                                    descripcion={pelicula.overview}
-                                />
-                            ))
+                            this.state.peliculas
+                                .filter(pelicula => pelicula.title.toLowerCase().includes(this.state.filtro_pelis.toLowerCase()))
+                                .map((pelicula) => (
+                                    <Card
+                                        key={pelicula.id}
+                                        id={pelicula.id}
+                                        nombre={pelicula.title}
+                                        foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
+                                        descripcion={pelicula.overview}
+                                    />
+                                ))
                         ) : (
                             <p>Cargando...</p>
                         )

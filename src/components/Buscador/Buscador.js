@@ -11,7 +11,7 @@ class Buscador extends Component {
         }
     }
 
-    
+
     controlarlaQuery(event) {
         this.setState({ query: event.target.value });
     }
@@ -29,22 +29,40 @@ class Buscador extends Component {
             <nav>
                 <form className="search-form" onSubmit={(event) => this.evitarSubmit(event)}>
 
-                    
-                    <input
-                        type="text"
-                        placeholder="Buscar..."
-                        value={this.state.query}
-                        onChange={(event) => this.controlarlaQuery(event)}
-                    />
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Buscar..."
+                            value={this.state.query}
+                            onChange={(event) => this.controlarlaQuery(event)}
+                        />
 
-                    <input
-                        type="text"
-                        placeholder="pelicula o serie"
-                        value={this.state.tipo}
-                        onChange={(event) => this.controlarTipo(event)}
-                    />
+                    </div>
+                    <div>
+                        <input
+                            type="radio"
+                            name="peli"
+                            id="movie"
+                            placeholder="pelicula"
+                            value="pelicula"
+                            onChange={(event) => this.controlarTipo(event)}
 
-                    
+                        />
+                        <label htmlFor="movie">Películas</label>
+                        <input
+                            type="radio"
+                            name="peli"
+                            id="serie"
+                            placeholder="serie"
+                            value="serie"
+                            onChange={(event) => this.controlarTipo(event)}
+
+                        />
+                         <label htmlFor="movie">Series</label>
+
+                    </div>
+
+
                     <Link
                         to={`/resultados/${this.state.tipo}/${this.state.query}`}
                         className="btn btn-success btn-sm"

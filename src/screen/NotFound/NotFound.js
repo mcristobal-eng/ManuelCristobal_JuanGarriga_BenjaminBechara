@@ -1,9 +1,10 @@
 import Header from "../../components/Header/Header";
-function NotFound (){
-    return 
-    <>
-    <Header/>
-    <h1>404 - Página no encontrada</h1>; 
-    </>
-        }
-    export default NotFound
+function NotFound() {
+    return (
+        <>
+            <Header />
+            <h1>404 - Página no encontrada</h1>;
+        </>
+    );
+}
+export default NotFound

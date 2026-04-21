@@ -37,7 +37,7 @@ class Peliculas extends Component {
         console.log(this.state);
         return (
             <>
-            
+
 
 
                 <h2 className="alert alert-primary">Popular movies this week</h2>
@@ -51,7 +51,7 @@ class Peliculas extends Component {
                                     nombre={pelicula.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                     descripcion={pelicula.overview}
-                                    tipo ='pelicula'
+                                    tipo='pelicula'
                                 />
                             ))
                         ) : (
@@ -70,7 +70,7 @@ class Peliculas extends Component {
                                     nombre={pelicula.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                     descripcion={pelicula.overview}
-                                    tipo = 'pelicula'
+                                    tipo='pelicula'
                                 />
                             ))
                         ) : (

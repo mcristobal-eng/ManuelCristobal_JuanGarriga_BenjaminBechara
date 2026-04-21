@@ -11,12 +11,12 @@ class Resultados extends Component {
         }
     }
 
-    componentDidMount() {   
+    componentDidMount() {
         // Tranfomé los datos para que la api sea leida correctamente, preguntar a lucas si está bien
         let tipo = this.props.match.params.tipo;
         let query = this.props.match.params.query;
         let tipoApi = tipo === 'pelicula' ? 'movie' : 'tv';   // aca yo puse, si tipo vale pelicula, tipo api vale movie, si no vale tv
- 
+
 
         fetch('https://api.themoviedb.org/3/search/' + tipoApi + '?api_key=cae07da6b0c1e31fafaea6dc83a1d696&query=' + query)
             .then(function (response) {
@@ -40,11 +40,7 @@ class Resultados extends Component {
         });
         return (
             <div>
-<<<<<<< HEAD
-                <Header/>
-=======
-                 <Header/>
->>>>>>> e115865894bb38dd6155595525b77d2295bf2d6a
+                <Header />
                 {resultados.length === 0 ? <h3>Cargando...</h3> : <div>{cards}</div>}
             </div>
         );

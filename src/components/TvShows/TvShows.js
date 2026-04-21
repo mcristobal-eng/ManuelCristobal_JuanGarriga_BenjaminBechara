@@ -48,7 +48,7 @@ class TvShows extends Component {
                                     nombre={pelicula.name}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                     descripcion={pelicula.overview}
-                                    tipo = 'serie'
+                                    tipo='serie'
                                 />
                             ))
                         ) : (
@@ -67,7 +67,7 @@ class TvShows extends Component {
                                     nombre={pelicula.name}
                                     foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                     descripcion={pelicula.overview}
-                                    tipo = 'serie'
+                                    tipo='serie'
                                 />
                             ))
                         ) : (

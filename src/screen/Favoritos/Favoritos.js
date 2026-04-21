@@ -1,6 +1,5 @@
 import Card from "../../components/Card/Card";
 import React, { Component } from "react";
-import TvShows from "../../components/TvShows/TvShows";
 import Header from "../../components/Header/Header";
 
 
@@ -11,7 +10,7 @@ class Favoritos extends Component {
             peliculasFavoritas: [],
             seriesFavoritas: [],
         };
-
+        
     }
 
     componentDidMount() {
@@ -19,7 +18,7 @@ class Favoritos extends Component {
         if (favoritosPelis != null) {
             let favoritosParseado = JSON.parse(favoritosPelis);
             favoritosParseado.map((id) => {
-                fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=cae07da6b0c1e31fafaea6dc83a1d696")
+                return fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=cae07da6b0c1e31fafaea6dc83a1d696")
                     .then(response => response.json())
                     .then(data => {
                         let copia = this.state.peliculasFavoritas;
@@ -29,18 +28,18 @@ class Favoritos extends Component {
                         });
                     })
                     .catch(error => console.log(error));
-                
+
 
 
             });
         }
-        
+
 
         let favoritosSeries = localStorage.getItem('favoritosSeries')
         if (favoritosSeries != null) {
             let favoritosParseado = JSON.parse(favoritosSeries);
-                favoritosParseado.map((id) => {
-                fetch("https://api.themoviedb.org/3/tv/" + id + "?api_key=cae07da6b0c1e31fafaea6dc83a1d696")
+            favoritosParseado.map((id) => {
+                return fetch("https://api.themoviedb.org/3/tv/" + id + "?api_key=cae07da6b0c1e31fafaea6dc83a1d696")
                     .then(response => response.json())
                     .then(data => {
                         let copia = this.state.seriesFavoritas;
@@ -64,7 +63,7 @@ class Favoritos extends Component {
         }
 
         let favoritos = JSON.parse(localStorage.getItem(clave))
-        let nuevoArray = [] 
+        let nuevoArray = []
         for (let i = 0; i < favoritos.length; i++) {
             if (favoritos[i] !== id) {
                 nuevoArray.push(favoritos[i]);
@@ -99,8 +98,8 @@ class Favoritos extends Component {
 
         return (
             <div>
-                    <Header/>
-                
+                <Header />
+
                 <h2 className='alert alert-primary'>Peliculas favoritas</h2>
 
                 <section className='row cards'>
@@ -111,7 +110,7 @@ class Favoritos extends Component {
                             nombre={pelicula.title}
                             foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                             descripcion={pelicula.overview}
-                            tipo = 'pelicula'
+                            tipo='pelicula'
                             eliminar={() => this.eliminarFavoritos(pelicula.id, 'pelicula')}
                         />
                     ))}
@@ -130,7 +129,7 @@ class Favoritos extends Component {
                             nombre={tv.name}
                             foto={"https://image.tmdb.org/t/p/w342" + tv.poster_path}
                             descripcion={tv.overview}
-                            tipo = 'serie'
+                            tipo='serie'
                             eliminar={() => this.eliminarFavoritos(tv.id, 'serie')}
 
 

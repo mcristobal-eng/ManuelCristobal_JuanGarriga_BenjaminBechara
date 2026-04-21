@@ -1,7 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import Favoritos from "./screen/Favoritos/Favoritos";
 import Home from "./screen/Home/Home";
 import Login from "./screen/Login/Login";
@@ -16,10 +15,10 @@ import Resultados from "./screen/Resultados/Resultados";
 function App() {
   return (
     <div className="container">
-    
+
 
       <Switch>
-      
+
         <Route path="/" exact={true} component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />

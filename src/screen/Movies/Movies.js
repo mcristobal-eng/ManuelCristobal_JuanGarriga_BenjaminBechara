@@ -56,8 +56,8 @@ class Movies extends Component {
         console.log(this.state);
         return (
             <>
-                    <Header/>
-                
+                <Header />
+
                 <h2 className="alert alert-primary">Todas las Peliculas </h2>
                 <form className="filter-form px-0 mb-3" onSubmit={(event) => this.evitarSubmit(event)}>
                     <input
@@ -81,7 +81,7 @@ class Movies extends Component {
                                         key={pelicula.id}
                                         id={pelicula.id}
                                         nombre={pelicula.title}
-                                        tipo = {'pelicula'}
+                                        tipo={'pelicula'}
                                         foto={"https://image.tmdb.org/t/p/w342" + pelicula.poster_path}
                                         descripcion={pelicula.overview}
                                     />

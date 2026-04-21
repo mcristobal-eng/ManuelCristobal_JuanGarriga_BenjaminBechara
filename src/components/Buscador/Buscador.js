@@ -27,7 +27,7 @@ class Buscador extends Component {
     render() {
         return (
             <nav>
-                
+
                 <form className="search-form" onSubmit={(event) => this.evitarSubmit(event)}>
 
                     <div>
@@ -60,7 +60,7 @@ class Buscador extends Component {
 
                         />
 
-                         <label htmlFor="movie">Series</label>
+                        <label htmlFor="movie">Series</label>
 
                     </div>
 

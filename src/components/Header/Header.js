@@ -9,16 +9,16 @@ let cookies = new Cookies()
 class Header extends Component {
     constructor(props) {
         super(props)
-    this.state={
-        sesion : cookies.get("sesion")
-    }
+        this.state = {
+            sesion: cookies.get("sesion")
+        }
 
     }
 
     logout() {
         cookies.remove("sesion")
         this.props.history.push("/Login")
-        this.setState({sesion:null})
+        this.setState({ sesion: null })
     }
 
     render() {
@@ -36,7 +36,7 @@ class Header extends Component {
                         </li>
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="movies">
+                            <Link className="nav-link" to="/movies">
                                 Películas
                             </Link>
                         </li>
@@ -50,7 +50,7 @@ class Header extends Component {
                         {this.state.sesion == null ? (
                             <>
                                 <li className="nav-item ms-auto">
-                                <Link className="nav-link" to="/register">
+                                    <Link className="nav-link" to="/register">
                                         Registro
                                     </Link>
                                 </li>
@@ -63,14 +63,14 @@ class Header extends Component {
                             </>)
                             : (
                                 <>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/favorites">
-                                        Favoritas
-                                    </Link>
-                                </li>
-                                <li className="nav-item" onClick={()=>this.logout()}>
-                                        Log Out
-                                </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/favorites">
+                                            Favoritas
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/" onClick={() => this.logout()}>Log Out</Link>
+                                    </li>
                                 </>
                             )
                         }

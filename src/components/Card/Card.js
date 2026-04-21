@@ -7,8 +7,7 @@ function Card(props) {
     if (props.eliminar) {
         botonEliminar = <button onClick={props.eliminar}>Eliminar</button>;}
     let botonCorazon =null;
-    if (cookies.get("sesion"))
-        if (props.tipo){
+    if (cookies.get("sesion")){
             botonCorazon = <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
         }
     
@@ -26,18 +25,12 @@ function Card(props) {
         if (recuperoStorage != null) {
             favoritos = JSON.parse(recuperoStorage);
         }
-        let existe = false;
+       if (favoritos.includes(props.id) === false) {
+        favoritos.push(props.id);
+    }
 
-        for (let i = 0; i < favoritos.length; i++) {
-            if (favoritos[i] === props.id) {
-                existe = true;
-            }
-        }
-        if (existe === false) {
-            favoritos.push(props.id)
-        }
-        let favoritosTexto = JSON.stringify(favoritos);
-        localStorage.setItem(clave, favoritosTexto);
+    let favoritosTexto = JSON.stringify(favoritos);
+    localStorage.setItem(clave, favoritosTexto);
 
     }
 

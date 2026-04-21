@@ -6,11 +6,11 @@ function Login() {
 
     return (
         <nav>
-               <Header/>
-           
+            <Header />
+
             <h2 className="alert alert-primary">Iniciar sesión</h2>
 
-            <FormLogin/> 
+            <FormLogin />
         </nav>);
 }
 

@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
-import Cookies from "universal-cookie"; 
+import Cookies from "universal-cookie";
 let cookies = new Cookies();
 
 function Card(props) {
-    let botonEliminar =null;
+    let botonEliminar = null;
     if (props.eliminar) {
-        botonEliminar = <button onClick={props.eliminar}>Eliminar</button>;}
-    let botonCorazon =null;
-    if (cookies.get("sesion")){
-            botonCorazon = <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
-        }
-    
+        botonEliminar = <button onClick={props.eliminar}>Eliminar</button>;
+    }
+    let botonCorazon = null;
+    if (cookies.get("sesion")) {
+        botonCorazon = <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
+    }
+
     function agregarAFavoritos() {
         let clave = "";
         if (props.tipo === 'pelicula') {
@@ -25,12 +26,12 @@ function Card(props) {
         if (recuperoStorage != null) {
             favoritos = JSON.parse(recuperoStorage);
         }
-       if (favoritos.includes(props.id) === false) {
-        favoritos.push(props.id);
-    }
+        if (favoritos.includes(props.id) === false) {
+            favoritos.push(props.id);
+        }
 
-    let favoritosTexto = JSON.stringify(favoritos);
-    localStorage.setItem(clave, favoritosTexto);
+        let favoritosTexto = JSON.stringify(favoritos);
+        localStorage.setItem(clave, favoritosTexto);
 
     }
 

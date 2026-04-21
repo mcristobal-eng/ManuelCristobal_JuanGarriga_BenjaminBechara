@@ -4,26 +4,26 @@ import Header from "../../components/Header/Header";
 import Peliculas from "../../components/Peliculas/Peliculas";
 import TvShows from "../../components/TvShows/TvShows";
 
-function Home (){
+function Home() {
 
 
   return (
-    <> 
-    <Header/>
-    <Buscador/>
+    <>
+      <Header />
+      <Buscador />
 
-    <Peliculas/>
+      <Peliculas />
 
-    <TvShows/>
-    
-    
+      <TvShows />
+
+
     </>
 
-    
 
 
 
-    
+
+
 
 
 

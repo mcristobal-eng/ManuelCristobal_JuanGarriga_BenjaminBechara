@@ -5,11 +5,11 @@ import Header from "../../components/Header/Header";
 function Register() {
   return (
     <div>
-          <Header/>
-      
+      <Header />
+
       <h2 className="alert alert-primary">Registro</h2>
-    <FormRegister />
-      
+      <FormRegister />
+
     </div>
   );
 }

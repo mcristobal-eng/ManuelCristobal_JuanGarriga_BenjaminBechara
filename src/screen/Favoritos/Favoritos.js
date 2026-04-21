@@ -10,7 +10,7 @@ class Favoritos extends Component {
             peliculasFavoritas: [],
             seriesFavoritas: [],
         };
-        
+
     }
 
     componentDidMount() {
@@ -121,8 +121,6 @@ class Favoritos extends Component {
 
                     {this.state.seriesFavoritas.map((tv, i) => (
 
-
-
                         <Card
                             key={i}
                             id={tv.id}
@@ -132,12 +130,7 @@ class Favoritos extends Component {
                             tipo='serie'
                             eliminar={() => this.eliminarFavoritos(tv.id, 'serie')}
 
-
-
-
                         />
-
-
 
                     ))}
 

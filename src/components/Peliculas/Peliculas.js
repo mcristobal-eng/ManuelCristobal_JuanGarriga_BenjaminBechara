@@ -3,7 +3,6 @@ import Card from "../Card/Card";
 
 
 
-
 class Peliculas extends Component {
 
     constructor(props) {
@@ -38,6 +37,8 @@ class Peliculas extends Component {
         console.log(this.state);
         return (
             <>
+            
+
 
                 <h2 className="alert alert-primary">Popular movies this week</h2>
                 <section className="cards" id="movies">

@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie"; 
+let cookies = new Cookies();
+
 function Card(props) {
     let botonEliminar =null;
     if (props.eliminar) {
         botonEliminar = <button onClick={props.eliminar}>Eliminar</button>;}
     let botonCorazon =null;
+    if (cookies.get("sesion"))
         if (props.tipo){
             botonCorazon = <button className="btn alert-primary" onClick={agregarAFavoritos}>♥️</button>
         }
@@ -15,8 +19,6 @@ function Card(props) {
         } else {
             clave = 'favoritosSeries';
         }
-
-
 
         let favoritos = []
         let recuperoStorage = localStorage.getItem(clave);

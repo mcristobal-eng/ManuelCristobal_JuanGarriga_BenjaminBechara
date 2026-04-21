@@ -27,6 +27,7 @@ class Buscador extends Component {
     render() {
         return (
             <nav>
+                
                 <form className="search-form" onSubmit={(event) => this.evitarSubmit(event)}>
 
                     <div>
@@ -58,7 +59,7 @@ class Buscador extends Component {
                             onChange={(event) => this.controlarTipo(event)}
 
                         />
-                        
+
                          <label htmlFor="movie">Series</label>
 
                     </div>

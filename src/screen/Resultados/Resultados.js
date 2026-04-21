@@ -40,6 +40,7 @@ class Resultados extends Component {
         });
         return (
             <div>
+                <Header/>
                 {resultados.length === 0 ? <h3>Cargando...</h3> : <div>{cards}</div>}
             </div>
         );
